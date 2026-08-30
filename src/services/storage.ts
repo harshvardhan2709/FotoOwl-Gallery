@@ -2,6 +2,14 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { User } from "@/types/auth";
 
 const STORAGE_KEYS = {
+  USER: "@pixelvault/user",
+  USERS_LIST: "@pixelvault/users_list",
+  SESSION: "@pixelvault/session",
+  FAVORITES_PREFIX: "@pixelvault/favorites_",
+  LEGACY_FAVORITES: "@pixelvault/favorites",
+};
+
+const LEGACY_STORAGE_KEYS = {
   USER: "@fotowl/user",
   USERS_LIST: "@fotowl/users_list",
   SESSION: "@fotowl/session",
@@ -12,7 +20,9 @@ const STORAGE_KEYS = {
 export const storage = {
   async getUsers(): Promise<User[]> {
     try {
-      const data = await AsyncStorage.getItem(STORAGE_KEYS.USERS_LIST);
+      const data =
+        (await AsyncStorage.getItem(STORAGE_KEYS.USERS_LIST)) ??
+        (await AsyncStorage.getItem(LEGACY_STORAGE_KEYS.USERS_LIST));
       return data ? JSON.parse(data) : [];
     } catch {
       return [];
@@ -43,7 +53,9 @@ export const storage = {
         );
         if (found) return found;
       }
-      const data = await AsyncStorage.getItem(STORAGE_KEYS.USER);
+      const data =
+        (await AsyncStorage.getItem(STORAGE_KEYS.USER)) ??
+        (await AsyncStorage.getItem(LEGACY_STORAGE_KEYS.USER));
       const activeUser = data ? JSON.parse(data) : null;
       if (email && activeUser && activeUser.email.toLowerCase() !== email.toLowerCase()) {
         return null;
@@ -63,7 +75,9 @@ export const storage = {
 
   async getSession(): Promise<boolean> {
     try {
-      const data = await AsyncStorage.getItem(STORAGE_KEYS.SESSION);
+      const data =
+        (await AsyncStorage.getItem(STORAGE_KEYS.SESSION)) ??
+        (await AsyncStorage.getItem(LEGACY_STORAGE_KEYS.SESSION));
       return data ? JSON.parse(data) : false;
     } catch {
       return false;
@@ -71,7 +85,7 @@ export const storage = {
   },
 
   async clearSession(): Promise<void> {
-    await AsyncStorage.removeItem(STORAGE_KEYS.SESSION);
+    await AsyncStorage.multiRemove([STORAGE_KEYS.SESSION, LEGACY_STORAGE_KEYS.SESSION]);
   },
 
   async setFavorites(favorites: string[], userEmail?: string): Promise<void> {
@@ -98,7 +112,16 @@ export const storage = {
         ? `${STORAGE_KEYS.FAVORITES_PREFIX}${email.toLowerCase()}`
         : STORAGE_KEYS.LEGACY_FAVORITES;
 
-      const data = await AsyncStorage.getItem(key);
+      let data = await AsyncStorage.getItem(key);
+      if (!data && email) {
+        data = await AsyncStorage.getItem(
+          `${LEGACY_STORAGE_KEYS.FAVORITES_PREFIX}${email.toLowerCase()}`
+        );
+      }
+      if (!data) {
+        data = await AsyncStorage.getItem(LEGACY_STORAGE_KEYS.LEGACY_FAVORITES);
+      }
+
       if (data) return JSON.parse(data);
 
       return [];

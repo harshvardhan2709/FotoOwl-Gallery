@@ -325,7 +325,7 @@ export default function HomeScreen() {
             </View>
 
             <Text className="text-xl font-black text-slate-900">
-              FotoOwl
+              PixelVault
             </Text>
           </View>
 
