@@ -125,7 +125,7 @@ export default function RegisterScreen() {
           </View>
 
           <View className="mb-4">
-            <Text className="text-2xl font-extrabold text-gray-900 tracking-tight">Join PixelVault</Text>
+            <Text className="text-2xl font-extrabold text-gray-900 tracking-tight">Join FotoOwl Gallery</Text>
             <Text className="text-sm text-gray-500 mt-1">Create your account to get started</Text>
           </View>
 

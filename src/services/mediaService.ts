@@ -12,7 +12,7 @@ export const mediaService = {
   async downloadAndSaveImage(imageData: PicsumImage): Promise<boolean> {
     const downloadUrl =
       imageData.download_url || `https://picsum.photos/id/${imageData.id}/1200/800`;
-    const fileUri = `${FileSystem.documentDirectory}pixelvault_${imageData.id}.jpg`;
+    const fileUri = `${FileSystem.documentDirectory}fotoowl_${imageData.id}.jpg`;
 
     try {
       const downloadResult = await FileSystem.downloadAsync(downloadUrl, fileUri);
@@ -41,7 +41,7 @@ export const mediaService = {
       console.error('[mediaService] Primary download failed, trying fallback:', error);
       try {
         const fallbackUrl = `https://picsum.photos/id/${imageData.id}/800/600`;
-        const fallbackUri = `${FileSystem.documentDirectory}pixelvault_${imageData.id}_fallback.jpg`;
+        const fallbackUri = `${FileSystem.documentDirectory}fotoowl_${imageData.id}_fallback.jpg`;
         const fallbackResult = await FileSystem.downloadAsync(fallbackUrl, fallbackUri);
 
         if (await Sharing.isAvailableAsync()) {
@@ -71,7 +71,7 @@ export const mediaService = {
 
     try {
       if (await Sharing.isAvailableAsync()) {
-        const fileUri = `${FileSystem.documentDirectory}pixelvault_share_${imageData.id}.jpg`;
+        const fileUri = `${FileSystem.documentDirectory}fotoowl_share_${imageData.id}.jpg`;
         const downloadResult = await FileSystem.downloadAsync(fullResolutionUrl, fileUri);
         await Sharing.shareAsync(downloadResult.uri);
         return true;

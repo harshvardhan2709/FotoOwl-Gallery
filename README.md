@@ -1,4 +1,4 @@
-# ⚡ PixelVault Gallery
+# 🦉 FotoOwl Gallery
 
 <div align="center">
 
@@ -11,7 +11,7 @@
 
 <br />
 
-**PixelVault Gallery** is a high-performance, production-ready cross-platform mobile image gallery and discovery application built with **React Native**, **Expo SDK 57**, **Expo Router**, **TypeScript**, **NativeWind (Tailwind CSS)**, and **Zustand**. It integrates with the **Lorem Picsum REST API** to deliver seamless photo browsing, debounced search, initial filtering, alphabetical sorting, per-user scoped favorites persistence, high-resolution full-screen lightbox viewing, native device gallery downloading, and native social sharing.
+**FotoOwl Gallery** is a high-performance, production-ready cross-platform mobile image gallery and discovery application built with **React Native**, **Expo SDK 57**, **Expo Router**, **TypeScript**, **NativeWind (Tailwind CSS)**, and **Zustand**. It integrates with the **Lorem Picsum REST API** to deliver seamless photo browsing, debounced search, initial filtering, alphabetical sorting, per-user scoped favorites persistence, high-resolution full-screen lightbox viewing, native device gallery downloading, and native social sharing.
 
 </div>
 
@@ -55,8 +55,8 @@
 - **Local Account Registration**: Full user registration supporting Full Name, Email, Gender (`Male`, `Female`, `Other`), 10-digit Mobile Number, Address, City picker (`Pune`, `Mumbai`, `Nashik`, `Nagpur`, `Thane`, `Aurangabad`), and Password confirmation.
 - **Client-Side Validation**: Robust RFC-compliant email formatting, strict 10-digit phone checking, password length enforcement (>= 6 chars), and real-time mismatch indicators.
 - **Persistent Session Gating**: Auto-restores the logged-in session on application cold launches using `AsyncStorage`. Gated routing automatically protects authenticated tab screens and redirects logged-out users to `/login`.
-- **One-Tap Demo Credentials**: "Auto-fill Credentials" helper button allows instantaneous login with pre-configured credentials (`demo@pixelvault.ai` / `password123`) or existing registered local credentials for swift testing.
-- **Multi-User Directory**: Preserves multiple local user accounts under `@pixelvault/users_list`, allowing multiple registered users to switch and login on the same device.
+- **One-Tap Demo Credentials**: "Auto-fill Credentials" helper button allows instantaneous login with pre-configured credentials (`demo@fotoowl.ai` / `password123`) or existing registered local credentials for swift testing.
+- **Multi-User Directory**: Preserves multiple local user accounts under `@fotoowl/users_list`, allowing multiple registered users to switch and login on the same device.
 
 ### 🖼️ Dynamic Image Gallery & Infinite Scrolling
 - **Two-Column Responsive Grid**: Rendered via an optimized `FlatList` layout with consistent aspect ratios and fixed dimension calculations.
@@ -79,7 +79,7 @@
 
 ### ❤️ Per-User Scoped Favorites System
 - **Cross-Screen Instant Sync**: Favorite/unfavorite photos directly from the Gallery grid, the Photo Details screen, or the Lightbox viewer with instant optimistic UI feedback.
-- **User-Isolated Persistence**: Favorites are scoped by user email (`@pixelvault/favorites_<email>`) in AsyncStorage. Switching between user accounts seamlessly loads each user's unique favorites list.
+- **User-Isolated Persistence**: Favorites are scoped by user email (`@fotoowl/favorites_<email>`) in AsyncStorage. Switching between user accounts seamlessly loads each user's unique favorites list.
 - **Dedicated Favorites Screen**: Displays all bookmarked photos in a 2-column grid with live search filtering within the favorites list and an empty-state quick navigation button.
 
 ### 🔍 Image Details & Metadata Inspector
@@ -113,7 +113,7 @@
 
 ## 🏗️ Architecture & State Management
 
-PixelVault Gallery follows a modular, layer-separated architecture ensuring maintainability, separation of concerns, and optimal rendering performance.
+FotoOwl Gallery follows a modular, layer-separated architecture ensuring maintainability, separation of concerns, and optimal rendering performance.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -164,11 +164,11 @@ The storage layer (`src/services/storage.ts`) organizes data under dedicated key
 
 | Key Pattern | Description |
 | :--- | :--- |
-| `@pixelvault/user` | Currently authenticated user profile JSON |
-| `@pixelvault/users_list` | Array of all registered user profiles on the device |
-| `@pixelvault/session` | Boolean session flag for auto-login hydration |
-| `@pixelvault/favorites_<email>` | Scoped favorites array for the specific user account |
-| `@pixelvault/favorites` | Legacy fallback favorites key |
+| `@fotoowl/user` | Currently authenticated user profile JSON |
+| `@fotoowl/users_list` | Array of all registered user profiles on the device |
+| `@fotoowl/session` | Boolean session flag for auto-login hydration |
+| `@fotoowl/favorites_<email>` | Scoped favorites array for the specific user account |
+| `@fotoowl/favorites` | Legacy fallback favorites key |
 
 ---
 
@@ -198,7 +198,7 @@ The storage layer (`src/services/storage.ts`) organizes data under dedicated key
 ## 📁 Project Structure
 
 ```text
-PixelVault/
+FotoOwlGallery/
 ├── assets/                          # Static assets, icons, adaptive icons, and splash
 │   └── images/
 ├── src/
@@ -259,7 +259,7 @@ PixelVault/
 
 ## 🔗 API Integration & Endpoints
 
-PixelVault Gallery consumes the public **Lorem Picsum REST API**:
+FotoOwl Gallery consumes the public **Lorem Picsum REST API**:
 
 ### 1. Paginated Image List
 ```http
@@ -335,8 +335,8 @@ Ensure you have the following installed on your development machine:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/harshvardhan2709/PixelVaultGallery.git
-   cd PixelVaultGallery
+   git clone https://github.com/harshvardhan2709/FotoOwlGallery.git
+   cd FotoOwlGallery
    ```
 
 2. **Install dependencies**:
@@ -432,4 +432,4 @@ The project includes pre-configured `eas.json` profiles for building standalone 
 Distributed under the **MIT License**. See [LICENSE](LICENSE) for more details.
 
 **Author**: **Harshvardhan Sawant**  
-GitHub: [https://github.com/harshvardhan2709/PixelVaultGallery](https://github.com/harshvardhan2709/PixelVaultGallery)
+GitHub: [https://github.com/harshvardhan2709/FotoOwlGallery](https://github.com/harshvardhan2709/FotoOwlGallery)

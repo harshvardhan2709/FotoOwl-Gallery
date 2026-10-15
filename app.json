@@ -1,15 +1,15 @@
 {
   "expo": {
-    "name": "PixelVault",
-    "slug": "PixelVault",
+    "name": "FotoOwl Gallery",
+    "slug": "FotoOwlGallery",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "pixelvault",
+    "scheme": "fotoowlgallery",
     "userInterfaceStyle": "automatic",
     "ios": {
       "icon": "./assets/expo.icon",
-      "bundleIdentifier": "com.harsh2004.PixelVault"
+      "bundleIdentifier": "com.harsh2004.FotoOwlGallery"
     },
     "android": {
       "adaptiveIcon": {
@@ -19,7 +19,7 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "predictiveBackGestureEnabled": false,
-      "package": "com.harsh2004.PixelVault",
+      "package": "com.harsh2004.FotoOwlGallery",
       "permissions": [
         "android.permission.READ_EXTERNAL_STORAGE",
         "android.permission.WRITE_EXTERNAL_STORAGE",
@@ -47,8 +47,8 @@
       [
         "expo-media-library",
         {
-          "photosPermission": "Allow PixelVault to save photos to your gallery.",
-          "savePhotosPermission": "Allow PixelVault to save photos to your gallery."
+          "photosPermission": "Allow FotoOwl Gallery to save photos to your gallery.",
+          "savePhotosPermission": "Allow FotoOwl Gallery to save photos to your gallery."
         }
       ],
       "expo-font"

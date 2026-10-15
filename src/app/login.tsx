@@ -62,7 +62,7 @@ export default function LoginScreen() {
       setEmail(registeredUser.email);
       setPassword(registeredUser.password);
     } else {
-      setEmail('demo@pixelvault.ai');
+      setEmail('demo@fotoowl.ai');
       setPassword('password123');
     }
   };
@@ -83,7 +83,7 @@ export default function LoginScreen() {
             <View className="w-14 h-14 rounded-2xl bg-black items-center justify-center mb-3 shadow-lg shadow-black/20">
               <Ionicons name="images-sharp" size={28} color="#FFFFFF" />
             </View>
-            <Text className="text-2xl font-extrabold text-gray-900 tracking-tight">PixelVault</Text>
+            <Text className="text-2xl font-extrabold text-gray-900 tracking-tight">FotoOwl Gallery</Text>
             <Text className="text-sm text-gray-500 text-center mt-1">
               Sign in to access your gallery
             </Text>
